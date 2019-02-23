@@ -2,34 +2,26 @@
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Project_Two
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
-            superBowl mySuperBowl = new superBowl();
-            while (mySuperBowl.welcome()==false)
+            bool firstRun = true;
+            SuperBowl mySuperBowl = new SuperBowl();
+            while (firstRun == true && mySuperBowl.welcome() == false)
             {
-                mySuperBowl.getText(@"Super_Bowl_Project.csv"); // set up data stream
-                                // create file for writing
+                mySuperBowl.getText(@"Super_Bowl_Project.csv");
                 mySuperBowl.writeFile(mySuperBowl.generateFile());
-                //write to file with formating
+                Console.ReadKey();
+                Console.WriteLine("Press any Key to Continue....");
+                firstRun = false;
             }
-           
-
-            /**Your application should allow the end user to pass end a file path for output 
-             * or guide them through generating the file.
-             **/
-
-            //make a list of winner, most attended, most used state, multi mvp'ers.
         }
-
-    }
-
-    class unkown
-    {
-        //unkown class
     }
 }
